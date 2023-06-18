@@ -109,7 +109,6 @@ impl Client {
         
         debug!("creating socket");
         let socket = UdpSocket::bind("0.0.0.0:0".parse::<SocketAddr>().unwrap()).await?;
-        socket.connect(peer_addr.clone()).await?;
         let socket = Arc::new(socket);
         debug!("connecting to {} at {}", server_name, peer_addr);
         
